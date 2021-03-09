@@ -4,35 +4,34 @@ import cors from 'cors'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { body, query, validationResult } from 'express-validator'
+import dotenv from 'dotenv'
+import mongoose from 'mongoose'
+
+
+
+dotenv.config();
+/// connect to DB
+mongoose.connect('mongodb+srv://phird:phird@cluster0.szf1p.mongodb.net/myFirstDatabase?retryWrites=true', { useNewUrlParser: true }, () => 
+console.log('connected to DB ! '));
 
 const app = express()
 app.use(bodyParser.json())
 app.use(cors())
-
 const PORT = process.env.PORT || 3000
 const SECRET = "SIMPLE_SECRET"
+const authRoute = require('./routes/authRouter.js');
 
 interface JWTPayload {
   username: string;
   password: string;
 }
 
-app.post('/login',
-  (req, res) => {
+// Middleeware
+app.use(express.json());
+// route muddle
+app.use('/api/users',authRoute);
 
-    const { username, password } = req.body
-    // Use username and password to create token.
 
-    return res.status(200).json({
-      message: 'Login succesfully',
-    })
-  })
-
-app.post('/register',
-  (req, res) => {
-
-    const { username, password, firstname, lastname, balance } = req.body
-  })
 
 app.get('/balance',
   (req, res) => {
@@ -69,7 +68,7 @@ app.delete('/reset', (req, res) => {
 })
 
 app.get('/me', (req, res) => {
-  
+ 
 })
 
 app.get('/demo', (req, res) => {
@@ -77,5 +76,10 @@ app.get('/demo', (req, res) => {
     message: 'This message is returned from demo route.'
   })
 })
+
+
+
+
+
 
 app.listen(PORT, () => console.log(`Server is running at ${PORT}`))
