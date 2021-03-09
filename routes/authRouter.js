@@ -16,14 +16,14 @@ router.post('/register', async (req, res) => {
   });
 
 /// VALIDATION
-const Joi = require('@hapi/joi');
-const schema = {
-    username: Joi.string().required(),
-    password: Joi.string().required(),
-    firstname: Joi.string().require(),
-    lastname: Joi.string().required(),
-    balance: Joi.number().required()
-}
+// const Joi = require('@hapi/joi');
+// const schema = {
+//     username: Joi.string().required(),
+//     password: Joi.string().required(),
+//     firstname: Joi.string().require(),
+//     lastname: Joi.string().required(),
+//     balance: Joi.number().required()
+// }
 
 
 router.post('/login',
