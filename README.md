@@ -6,8 +6,7 @@
 * จงเขียนชื่อ-นามสกุล และรหัสของนักศึกษา ลงในไฟล์ readme.md นี้ 
 <<<<<<< HEAD
 
-Phirachat Kochanil 620610801 : https://quiz4-phird.herokuapp.com/
-
 =======
 phirachat kochanil 620610801 : https://quiz4-phird.herokuapp.com/
->>>>>>> 69fd8cb40d0d7969d403c80c260a49b40624e352
+
+note : to access register https://quiz4-phird.herokuapp.com/api/users/register  ผมลืมครัมุแง้
